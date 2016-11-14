@@ -1,0 +1,6 @@
+<h2>Редактирование пользователя <%= @user.name %> </h2>
+<%= form_for @user do |f| %>
+    <%= f.text_field :name %>
+    <%= f.email_field :email %>
+<%= f.submit "Save" %>
+<% end %>
