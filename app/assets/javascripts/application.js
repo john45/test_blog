@@ -17,6 +17,7 @@
 $( document ).on('turbolinks:load',function(){
     if ($('.notice').text() == "!!!Учитесь вместе с GeekHub!!!"){
         alert('!!!Учитесь вместе с GeekHub!!!');
+        $('.notice').remove();
     }
 
 });
