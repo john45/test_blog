@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :work_with_cookies
 
+
+
   private
     def work_with_cookies
       if cookies[:count]
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
       end
 
       if cookies[:count] == 10
-        flash[:notice] = "!!!Учитесь вместе с GeekHub!!!"
+        flash.now[:notice] = "!!!Учитесь вместе с GeekHub!!!"
         cookies[:count] = 0
       end
     end
