@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # @users = User.all
   end
 
   def new
-    # @user = User.new
+    @user = User.new
   end
 
   def create
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:error] = "Something goes wrong"
-      redirect_to action: :new
+      render 'new'
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def update
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
