@@ -1,11 +1,23 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  body       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#  image      :string
+#
+
 class Post < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
-  before_save :after_registration_send_email
+  validates :title, presence: true, length: {minimum: 2}
+  validates :body, presence: true, length: {minimum: 3}
+  default_scope -> {order(created_at: :desc)}
 
-  private
+  mount_uploader :image, PostImageUploader
 
-    def after_registration_send_email
-      GreetingMeailerMailer.after_registration(self.user).deliver_now
-    end
 end

@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$state-danger-text: red;
 
 /* universal */
 
@@ -181,3 +182,6 @@ input {
     color: $state-danger-text;
   }
 }
+
+/* fields with errors */
+
