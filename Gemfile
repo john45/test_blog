@@ -30,6 +30,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'annotate'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'russian', '~> 0.6.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

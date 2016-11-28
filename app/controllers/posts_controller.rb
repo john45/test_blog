@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
+  before_action :logged_in?
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in?, except: [:index, :show]
 
 
   # GET /posts
@@ -32,11 +32,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
+        format.json { render :index, status: :created, location: @post }
+        format.js { render 'create', status: :created, location: @post }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end

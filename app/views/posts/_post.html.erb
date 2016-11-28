@@ -1,11 +1,20 @@
-<li id="post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user), post.user %>
-  <ul>
-    <li><span class="user"><%= link_to post.user.name, post.user %></span></li>
-    <li><span class="title"><%= post.title %></span></li>
-    <li><span class="body"><%= post.body %></span></li>
-    <li><span class="timestamp">
-      Posted <%= time_ago_in_words(post.created_at) %> ago.
-    </span></li>
-  </ul>
-</li>
+<tr>
+  <td><%= image_tag post.image_url(:thumb) || 'default-thumbnail.jpg' %></td>
+  <td><%= post.title %></td>
+  <td><%= post.body %></td>
+  <td><%= post.user.email %></td>
+  <td><%= link_to 'Show', post %></td>
+  <% if logged_in? && post.user == current_user %>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Запись создана: </td>
+  <td><%= l post.created_at, format: "%e %b %Y" "%B" %></td>
+</tr>
+<tr>
+  <td>
+    . <br>
+  </td>
+</tr>
