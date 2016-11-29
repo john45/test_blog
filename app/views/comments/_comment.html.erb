@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+  <p>
+    <%= comment.body %>
+  </p>
+  <p>
+    <%= link_to 'Delete comment', [comment.post, comment], method: :delete %>
+  </p>
+<% end %>

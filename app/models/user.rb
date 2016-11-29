@@ -12,6 +12,7 @@
 
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :comments, through: :posts
   before_save {self.email = email.downcase}
   after_create :welcome_message
 
