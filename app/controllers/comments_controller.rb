@@ -5,10 +5,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to posts_path
-    else
-      render 'new'
+    respond_to do |format|
+      if @comment.save
+        format.js { render 'create', status: :created, location: @post }
+        # redirect_to posts_path
+      else
+        render 'new'
+      end
     end
 
   end

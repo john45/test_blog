@@ -14,16 +14,18 @@
 </tr>
 <tr>
   <td>
-    <% if post.comments %>
-      <% post.comments.each do |comment| %>
-        comment:... <%= comment.body %><br>
-       <% end %>
-    <% end %>
+    <div id="post_<%= post.id %>">
+      <% if post.comments %>
+        <% post.comments.each do |comment| %>
+          comment:... <%= comment.body %><br>
+         <% end %>
+      <% end %>
+    </div>
   </td>
 </tr>
 <tr>
   <td>
-    <%= form_for([post, post.comments.build]) do |f| %>
+    <%= form_for([post, post.comments.build], remote: true) do |f| %>
         <%= f.label :body %>
         <%= f.text_area :body %>
         <%= f.submit 'Оставить комментарий' %>
