@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in?
+  before_action :require_login
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 
@@ -7,13 +7,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    def_respond_to(@posts)
+    # def_respond_to(@posts)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    def_respond_to(@post)
     @comments = Comment.where(post_id: @post).order("created_at DESC")
   end
 
@@ -69,14 +68,18 @@ class PostsController < ApplicationController
   end
 
   private
-    def def_respond_to(post)
-      respond_to do |format|
-        format.json {
-          render json: post, except: :updated_at
-        }
-        format.html
-      end
+    def require_login
+      redirect_to home_url unless logged_in?
     end
+
+    # def def_respond_to(post)
+    #   respond_to do |format|
+    #     format.json {
+    #       render json: post, except: :updated_at
+    #     }
+    #     format.html
+    #   end
+    # end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

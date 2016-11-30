@@ -3,6 +3,9 @@
     <%= comment.body %>
   </p>
   <p>
+    <%= link_to 'Edit comment', edit_post_comment_path(comment.post, comment) %>
+  </p>
+  <p>
     <%= link_to 'Delete comment', [comment.post, comment], method: :delete %>
   </p>
 <% end %>

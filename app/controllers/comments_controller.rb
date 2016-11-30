@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
   end
 
   def update
+    if @comment.update(comment_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
 
   end
 

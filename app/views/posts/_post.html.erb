@@ -15,6 +15,15 @@
 </tr>
 <tr>
   <td>
+    <% if post.comments %>
+      <% post.comments.each do |comment| %>
+        comment:... <%= comment.body %><br>
+       <% end %>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td>
     . <br>
   </td>
 </tr>
