@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   delete '/logout',to: 'sessions#destroy'
 
   resources :posts do
+    member do
+      get 'vote_up'
+      get 'vote_down'
+    end
     resources :comments
   end
 
