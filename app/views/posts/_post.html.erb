@@ -1,40 +1,31 @@
 <tr>
-  <td><%= post.title %></td>
-  <td><%= post.body %></td>
-  <td><%= post.user.email %></td>
-  <td><%= link_to 'Show', post %></td>
-  <% if logged_in? && post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-</tr>
-<tr>
-  <td>Запись создана: </td>
-  <td><%= l post.created_at, format: "%e %b %Y" "%B" %></td>
-</tr>
-<tr>
-  <td>
-    <div id="post_<%= post.id %>">
-      <% if post.comments %>
-        <% post.comments.each do |comment| %>
-          comment:... <%= comment.body %><br>
-         <% end %>
-      <% end %>
-    </div>
-  </td>
-</tr>
-<tr>
-  <td>
-    <%= form_for([post, post.comments.build], remote: true) do |f| %>
-        <%= f.label :body %>
-        <%= f.text_area :body %>
-        <%= f.submit 'Оставить комментарий' %>
-    <% end %>
-  </td>
-</tr>
-
-<tr>
-  <td>
-    . <br>
-  </td>
+    <td>
+        <%= image_tag(image_url'default-thumbnail.jpg', class: 'post_image')  %>
+    </td>
+    <td>
+        <h3><%= post.title %> <br></h3>
+        <%= post.body %> <br>
+        <hr>
+        Автор поста:  <%= post.user.name %>    Запись создана:  <%= l post.created_at, format: "%e %b %Y" "%B" %> <br>
+        <hr>
+        <%= link_to 'Show', post %>
+        <% if logged_in? && post.user == current_user %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %> <br>
+         <!--all comments for post-->
+        <div id="post_<%= post.id %>">
+          <% if post.comments %>
+              <% post.comments.each do |comment| %>
+                  comment:... <%= comment.body %><br>
+              <% end %>
+          <% end %>
+        </div>
+        <!--form for create new comment-->
+        <%= form_for([post, post.comments.build], remote: true) do |f| %>
+            <%= f.label :body %>
+            <%= f.text_area :body %>
+            <%= f.submit 'Оставить комментарий' %>
+        <% end %>
+    </td>
 </tr>

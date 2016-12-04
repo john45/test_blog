@@ -1,0 +1,18 @@
+<table id="User_info">
+  <tr>
+    <td>
+      <%= gravatar_for @user %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3><%= @user.name %></h3>
+    </td>
+  </tr>
+  <tr>
+    <td><%= t 'posts.index.posts'%>: <%= pluralize(@user.posts.count, 'post') %></td>
+  </tr>
+  <tr>
+    <td><%= t 'posts.index.comments'%>: <%= pluralize(@user.comments.count, 'comment') %></td>
+  </tr>
+</table>

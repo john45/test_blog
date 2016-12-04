@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # get 'sessions/new'
+  get 'en', to: 'application#locale_en', as: 'english'
+  get 'ru', to: 'application#locale_ru', as: 'russian'
 
   root 'posts#index'
   get  '/help',    to: 'static_pages#help'

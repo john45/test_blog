@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  posts:
+    index:
+      hello: 'All posts'
+      posts: 'Posts'
+      comments: 'Comments'

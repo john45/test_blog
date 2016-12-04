@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129185749) do
+ActiveRecord::Schema.define(version: 20161203083243) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20161129185749) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "image"
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_posts_on_ancestry"
   end
 
   create_table "users", force: :cascade do |t|

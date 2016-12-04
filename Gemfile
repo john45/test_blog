@@ -31,6 +31,7 @@ gem 'annotate'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'russian', '~> 0.6.0'
+gem 'ancestry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

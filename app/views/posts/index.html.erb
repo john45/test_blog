@@ -1,23 +1,20 @@
-<h1>Posts</h1>
+<% provide(:title, 'General page') %>
+<h3><%= t '.hello'%></h3>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-4" >
+    <%= render 'users/user_info' if logged_in? %>
+</div>
 
-  <tbody>
-      <%= render @posts %>
-  </tbody>
-</table>
+<div class="col-md-8" >
+    <table>
+        <tbody>
+            <%= render @posts %>
+        </tbody>
+    </table>
+</div>
 
 
 <br>
 <% if logged_in? %>
-  <%= link_to 'New Post', new_post_path, id: 'new_post_link', remote: true %>
+    <%= link_to 'New Post', new_post_path, id: 'new_post_link', remote: true %>
 <% end %>
