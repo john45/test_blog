@@ -149,6 +149,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  margin-top: 80px;
 }
 
 .gravatar_edit {
@@ -185,6 +186,14 @@ input {
 
 /* style images post */
 .post_image {
-  margin: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
-
+.post_image_show {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.header_hello {
+  border-bottom:1px solid black;
+}

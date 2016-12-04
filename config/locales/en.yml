@@ -20,9 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   posts:
     index:
       hello: 'All posts'
       posts: 'Posts'
       comments: 'Comments'
+    show:
+      author: "Post author"
+      create: "Post created"
+  activerecord:
+    attributes:
+      post:
+        title: 'title'
+        body: 'body'

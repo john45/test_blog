@@ -1,12 +1,12 @@
 <tr>
     <td>
-        <%= image_tag(image_url'default-thumbnail.jpg', class: 'post_image')  %>
+        <%= image_tag('default-thumbnail.jpg', class: "post_image")  %>
     </td>
     <td>
         <h3><%= post.title %> <br></h3>
         <%= post.body %> <br>
         <hr>
-        Автор поста:  <%= post.user.name %>    Запись создана:  <%= l post.created_at, format: "%e %b %Y" "%B" %> <br>
+        <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
         <hr>
         <%= link_to 'Show', post %>
         <% if logged_in? && post.user == current_user %>
@@ -27,5 +27,6 @@
             <%= f.text_area :body %>
             <%= f.submit 'Оставить комментарий' %>
         <% end %>
+        <hr>
     </td>
 </tr>

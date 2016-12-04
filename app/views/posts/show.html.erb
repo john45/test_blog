@@ -1,10 +1,13 @@
+<p align="center">
+  <%= image_tag('default-thumbnail.jpg', class: "post_image_show")  %>
+</p>
 <p>
-  <strong>Title:</strong>
+  <strong><%= Post.human_attribute_name(:title).capitalize %>:</strong>
   <%= @post.title %>
 </p>
   <%= image_tag @post.image_url if @post.image_url %>
 <p>
-  <strong>Body:</strong>
+  <strong><%= Post.human_attribute_name(:body).capitalize %>:</strong>
   <%= @post.body %>
 </p>
 <p>

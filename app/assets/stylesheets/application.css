@@ -13,6 +13,3 @@
  *= require_tree .
  *= require_self
  */
-.post_image {
-    margin: 20px;
-}

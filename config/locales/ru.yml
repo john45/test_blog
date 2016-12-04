@@ -1,7 +1,14 @@
 ru:
-  hello: "Привет МИР !!!"
   posts:
     index:
       hello: 'Все посты'
       posts: 'Кол-во постов'
       comments: 'Кол-во комментариев'
+    show:
+      author: "Автор поста"
+      create: "Пост создан"
+  activerecord:
+    attributes:
+      post:
+        title: 'заголовок'
+        body: 'тело поста'

@@ -1,16 +1,19 @@
 <% provide(:title, 'General page') %>
-<h3><%= t '.hello'%></h3>
+
 
 <div class="col-md-4" >
     <%= render 'users/user_info' if logged_in? %>
 </div>
 
 <div class="col-md-8" >
-    <table>
-        <tbody>
-            <%= render @posts %>
-        </tbody>
-    </table>
+  <div class="header_hello" align="center">
+    <h3><%= t '.hello'%></h3>
+  </div>
+  <table>
+      <tbody id="all_posts">
+          <%= render @posts %>
+      </tbody>
+  </table>
 </div>
 
 
