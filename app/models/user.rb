@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   before_save {self.email = email.downcase}
-  after_create :welcome_message
+  # after_create :welcome_message
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {minimum: 2, maximum: 50}
