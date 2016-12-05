@@ -4,6 +4,7 @@ ru:
       hello: 'Все посты'
       posts: 'Кол-во постов'
       comments: 'Кол-во комментариев'
+      comment_created: "Коммент создан"
     show:
       author: "Автор поста"
       create: "Пост создан"

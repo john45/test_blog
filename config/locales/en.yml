@@ -28,6 +28,7 @@ en:
     show:
       author: "Post author"
       create: "Post created"
+      comment_created: "Comment created"
   activerecord:
     attributes:
       post:

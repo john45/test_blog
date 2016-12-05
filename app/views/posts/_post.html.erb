@@ -5,19 +5,20 @@
     <td>
         <h3><%= post.title %> <br></h3>
         <%= post.body %> <br>
-        <hr>
-        <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
-        <hr>
         <%= link_to 'Show', post %>
         <% if logged_in? && post.user == current_user %>
             <%= link_to 'Edit', edit_post_path(post) %>
             <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %> <br>
+        <% end %> <br> <br>
+
+        <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
+        <hr>
+
          <!--all comments for post-->
         <div id="post_<%= post.id %>">
           <% if post.comments %>
               <% post.comments.each do |comment| %>
-                  comment:... <%= comment.body %><br>
+                <%= render partial: 'comments/comment', locals: {comment: comment} %>
               <% end %>
           <% end %>
         </div>

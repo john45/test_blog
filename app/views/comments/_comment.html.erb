@@ -1,11 +1,19 @@
-<% @comments.each do |comment| %>
+<div class="comment<%= comment.id%>" style="border:solid 1px black; padding-left: 10px;">
+
   <p>
     <%= comment.body %>
   </p>
-  <p>
-    <%= link_to 'Edit comment', edit_post_comment_path(comment.post, comment) %>
-  </p>
-  <p>
-    <%= link_to 'Delete comment', [comment.post, comment], method: :delete %>
-  </p>
-<% end %>
+  <h6>
+    <p>
+      <%= link_to 'Reply', new_post_comment_path(comment.post, parent_id: comment), remote: true %> |
+      <%= link_to 'Delete comment', [comment.post, comment], method: :delete %>
+    </p>
+    <p>
+      <%= l comment.created_at, format: "%e %B " "%H:%M:%S"%>
+    </p>
+  </h6>
+</div>
+<div class="form_new_comment_for_parent_<%= comment.id%> hiden_element" >
+  <%= render 'comments/form' %>
+</div>
+<hr>

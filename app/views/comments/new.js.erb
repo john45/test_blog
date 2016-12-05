@@ -1,0 +1,5 @@
+if ($('.form_new_comment_for_parent_<%= params[:parent_id] %>').hasClass("hiden_element")){
+    $('.form_new_comment_for_parent_<%= params[:parent_id] %>').removeClass("hiden_element")
+} else {
+    $('.form_new_comment_for_parent_<%= params[:parent_id] %>').addClass("hiden_element")
+}

@@ -1,3 +1,4 @@
+
 <p align="center">
   <%= image_tag('default-thumbnail.jpg', class: "post_image_show")  %>
 </p>
@@ -11,7 +12,7 @@
   <%= @post.body %>
 </p>
 <p>
-  <%= render 'comments/comment' %>
+  <%= nested_comments @comments.arrange(order: :created_at) %>
 </p>
 <p>
   <%= render 'comments/form' %>
