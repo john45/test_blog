@@ -20,6 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  layouts:
+    application:
+      blog: 'MY BLOG'
+      home: 'Home'
+      users: 'Users'
+      help: 'Help'
+      account: 'Account'
+      profile: 'Profile'
+      settings: 'Settings'
+      logout: 'Log out'
+      login: 'Login'
   posts:
     index:
       hello: 'All posts'

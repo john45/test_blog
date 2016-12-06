@@ -1,5 +1,5 @@
 <tr>
-    <td>
+    <td style="padding: 10px;">
         <%= image_tag('default-thumbnail.jpg', class: "post_image")  %>
     </td>
     <td>
@@ -12,9 +12,6 @@
         <% end %> <br> <br>
 
         <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
-        <hr>
-
-        <%= link_to 'Show Post', post_path(post) %>
         <hr>
     </td>
 </tr>

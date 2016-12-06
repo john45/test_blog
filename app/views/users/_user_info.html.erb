@@ -16,4 +16,11 @@
   <tr>
     <td><%= t 'posts.index.comments'%>: <%= pluralize(@user.comments.count, 'comment') %></td>
   </tr>
+  <tr>
+    <td>
+      <% if logged_in? %>
+          <%= link_to 'New Post', new_post_path, id: 'new_post_link', remote: true %>
+      <% end %>
+    </td>
+  </tr>
 </table>

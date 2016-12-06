@@ -1,4 +1,15 @@
 ru:
+  layouts:
+    application:
+      blog: 'MY BLOG'
+      home: 'Домашняя'
+      users: 'Все пользователи'
+      help: 'Помощь'
+      account: 'Аккаунт'
+      profile: 'Профиль'
+      settings: 'Настройки'
+      logout: 'Выход'
+      login: 'Вход'
   posts:
     index:
       hello: 'Все посты'

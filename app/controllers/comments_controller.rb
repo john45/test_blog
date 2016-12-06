@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_post
-  before_action :find_comment, only: [:destroy, :edit, :update]
+  before_action :find_comment, only: [:destroy, :edit, :update, :upvote, :downvote]
 
   def new
     @comment = Comment.new(parent_id: params[:parent_id])
@@ -41,6 +41,16 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     redirect_to '/'
+  end
+
+  def upvote
+    @comment.upvote_from current_user
+    redirect_to @post
+  end
+
+  def downvote
+    @comment.downvote_from current_user
+    redirect_to @post
   end
 
   private
