@@ -12,9 +12,9 @@
       <%= l comment.created_at, format: "%e %B " "%H:%M:%S"%>
     </p>
     <p>
-      <%= link_to '+', like_post_comment_path(comment.post, comment), class: 'like', method: :put %>
-      kol-ov "+" laikov: <%= pluralize(comment.get_upvotes.size, 'like') %>
-      <%= link_to '-', unlike_post_comment_path(comment.post, comment), class: 'unlike', method: :put %>
+      <b><%= link_to '+', like_post_comment_path(comment.post, comment), class: 'like', method: :put %></b> /
+      <b><%= link_to '-', unlike_post_comment_path(comment.post, comment), class: 'unlike', method: :put %></b> <br>
+      kol-ov "+" laikov: <%= pluralize(comment.get_upvotes.size, 'like') %> <br>
       kol-vo "-" laikov: <%= pluralize(comment.get_downvotes.size, 'like') %>
     </p>
   </h6>
