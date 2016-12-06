@@ -14,20 +14,7 @@
         <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
         <hr>
 
-         <!--all comments for post-->
-        <div id="post_<%= post.id %>">
-          <% if post.comments %>
-              <% post.comments.each do |comment| %>
-                <%= render partial: 'comments/comment', locals: {comment: comment} %>
-              <% end %>
-          <% end %>
-        </div>
-        <!--form for create new comment-->
-        <%= form_for([post, post.comments.build], remote: true) do |f| %>
-            <%= f.label :body %>
-            <%= f.text_area :body %>
-            <%= f.submit 'Оставить комментарий' %>
-        <% end %>
+        <%= link_to 'Show Post', post_path(post) %>
         <hr>
     </td>
 </tr>
