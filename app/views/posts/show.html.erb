@@ -11,9 +11,9 @@
   <strong><%= Post.human_attribute_name(:body).capitalize %>:</strong>
   <%= @post.body %>
 </p>
-<p>
+<hr>
   <%= nested_comments @comments.arrange(order: :created_at) %>
-</p>
+
 <p>
   <%= render 'comments/form' %>
 </p>

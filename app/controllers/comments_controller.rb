@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_post
-  before_action :find_comment, only: [:destroy, :edit, :update, :upvote, :downvote]
+  before_action :find_comment, only: [:destroy, :edit, :update, :vote, :downvote]
 
   def new
     @comment = Comment.new(parent_id: params[:parent_id])
@@ -43,14 +43,18 @@ class CommentsController < ApplicationController
     redirect_to '/'
   end
 
-  def upvote
+  def vote
     @comment.upvote_from current_user
-    redirect_to @post
+      respond_to do |format|
+        format.js { render 'vote', status: :created, location: @post }
+      end
   end
 
   def downvote
     @comment.downvote_from current_user
-    redirect_to @post
+    respond_to do |format|
+      format.js { render 'vote', status: :created, location: @post }
+    end
   end
 
   private
