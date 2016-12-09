@@ -21,4 +21,8 @@ class Post < ApplicationRecord
 
   mount_uploader :image, PostImageUploader
 
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+
 end
