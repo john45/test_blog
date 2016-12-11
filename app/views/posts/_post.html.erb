@@ -3,14 +3,12 @@
         <%= image_tag('default-thumbnail.jpg', class: "post_image")  %>
     </td>
     <td>
-        <h3><%= post.title %> <br></h3>
-        <%= post.body %> <br>
-        <%= link_to 'Show', post %>
+        <h3><%= link_to (post.title), post %><br></h3>
+        <%= truncate(post.body, omission: '...', length: 200){link_to t('posts.index.read_next'), post} %> <br>
         <% if logged_in? && post.user == current_user %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '', edit_post_path(post), class: "glyphicon glyphicon-pencil"%>
+            <%= link_to '', post, class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %> <br> <br>
-
         <%= t 'posts.show.author' %>: <%= post.user.name %>    <%= t 'posts.show.create' %>:  <%= l post.created_at, format: "%Y %e %B " "%H:%M:%S"%> <br>
         <hr>
     </td>

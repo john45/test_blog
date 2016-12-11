@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post '/login',   to: 'sessions#create'
     delete '/logout',to: 'sessions#destroy'
 
+    resources :users
     resources :posts do
       resources :comments do
         member do
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users
   end
 
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")

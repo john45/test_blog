@@ -18,10 +18,15 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
+  static_pages:
+    home:
+      greeting: "Welcome to Adamenko's first blog"
+      sign_up: 'Sign UP'
+      explain: 'My blog is writen by many sources include '
   layouts:
     application:
+      language: 'Language'
       blog: 'MY BLOG'
       home: 'Home'
       users: 'Users'
@@ -33,6 +38,8 @@ en:
       login: 'Login'
   posts:
     index:
+      read_next: 'Read more'
+      new_post: 'Create new post'
       hello: 'All posts'
       posts: 'Posts'
       comments: 'Comments'

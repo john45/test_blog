@@ -1,6 +1,12 @@
 ru:
+  static_pages:
+    home:
+      greeting: "Добро пожаловать на первый блог Адаменка"
+      sign_up: 'Зарегистрироваться'
+      explain: 'При написании моего блога использовалось много источников в том числе и  '
   layouts:
     application:
+      language: 'Язык'
       blog: 'MY BLOG'
       home: 'Домашняя'
       users: 'Все пользователи'
@@ -12,6 +18,8 @@ ru:
       login: 'Вход'
   posts:
     index:
+      read_next: 'Читать далее'
+      new_post: 'Новый пост'
       hello: 'Все посты'
       posts: 'Кол-во постов'
       comments: 'Кол-во комментариев'

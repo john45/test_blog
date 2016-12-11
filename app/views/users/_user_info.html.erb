@@ -11,7 +11,6 @@
   </tr>
   <tr>
     <td><%= t 'posts.index.posts'%>: <%= pluralize(@user.posts.count, 'posts') %></td>
-
   </tr>
   <tr>
     <td><%= t 'posts.index.comments'%>: <%= pluralize(@user.comments.count, 'comment') %></td>
@@ -19,7 +18,7 @@
   <tr>
     <td>
       <% if logged_in? %>
-          <%= link_to 'New Post', new_post_path, id: 'new_post_link', remote: true %>
+          <%= link_to (t 'posts.index.new_post'), new_post_path, id: 'new_post_link', remote: true %>
       <% end %>
     </td>
   </tr>

@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = current_user
     # def_respond_to(@posts)
-    #TODO do json response in all actions
   end
 
   # GET /posts/1
