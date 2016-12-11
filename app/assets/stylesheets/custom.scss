@@ -3,7 +3,7 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
+$gray-medium-light: #bfbfbf;
 $state-danger-text: red;
 
 /* static page home*/
@@ -87,7 +87,10 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border: 1px solid $gray-medium-light;
+  nav {
+    border-top: 1px solid $gray-medium-light;
+  }
+
   color: $gray-light;
   a {
     color: $gray;
@@ -106,12 +109,6 @@ footer {
       margin-left: 15px;
     }
   }
-  position: fixed; /* Фиксированное положение */
-  left: 0; bottom: 0; /* Левый нижний угол */
-  padding: 10px; /* Поля вокруг текста */
-  background: white; /* Цвет фона */
-  color: #fff; /* Цвет текста */
-  width: 100%; /* Ширина слоя */
 }
 
 /* mixins, variables, etc. */
