@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
       if cookies[:count] == 10
         flash.now[:notice] = '!!!Учитесь вместе с GeekHub!!!'
       else
-        cookies[:count].to_i += 1
+        cookies[:count] = cookies[:count].to_i + 1
       end
     end
 end
