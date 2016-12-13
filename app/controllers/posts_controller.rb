@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :require_login
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-
   # GET /posts
   # GET /posts.json
   def index
@@ -14,7 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = Comment.where(post_id: @post).order("created_at DESC")
+    @comments = Comment.where(post_id: @post).order('created_at DESC')
   end
 
   # GET /posts/new
@@ -33,7 +32,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
+        format.html do
+          redirect_to posts_url, notice: 'Post was successfully created.'
+        end
         format.json { render :index, status: :created, location: @post }
         format.js { render 'create', status: :created, location: @post }
       else
@@ -49,7 +50,9 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html do
+          redirect_to @post, notice: 'Post was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -63,12 +66,15 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html do
+        redirect_to posts_url, notice: 'Post was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
+
     def require_login
       redirect_to home_url unless logged_in?
     end
@@ -86,7 +92,8 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet,
+    # only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, :image)
     end

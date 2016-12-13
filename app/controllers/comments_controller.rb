@@ -1,12 +1,16 @@
 class CommentsController < ApplicationController
   before_action :find_post
-  before_action :find_comment, only: [:destroy, :edit, :update, :vote, :downvote]
+  before_action :find_comment, only: [:destroy,
+                                      :edit,
+                                      :update,
+                                      :vote,
+                                      :downvote]
 
   def new
     @comment = Comment.new(parent_id: params[:parent_id])
     @comment.parent_id = params[:parent_id]
     respond_to do |format|
-      format.js { render 'new', status: :created, location: @post}
+      format.js { render 'new', status: :created, location: @post }
       # format.html
     end
   end
@@ -17,13 +21,12 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js { render 'create', status: :created, location: @post }
-        format.html { redirect_to @post}
+        format.html { redirect_to @post }
         # redirect_to posts_path
       else
         render 'new'
       end
     end
-
   end
 
   def edit
@@ -35,7 +38,6 @@ class CommentsController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   def destroy
@@ -68,6 +70,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:body,:parent_id)
+      params.require(:comment).permit(:body, :parent_id)
     end
 end

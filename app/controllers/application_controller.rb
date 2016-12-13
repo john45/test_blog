@@ -18,8 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def default_url_options(options = {})
-      {locale: I18n.locale}
+
+    def default_url_options(_options = {})
+      { locale: I18n.locale }
     end
 
     def set_locale
@@ -27,15 +28,12 @@ class ApplicationController < ActionController::Base
     end
 
     def work_with_cookies
-      if cookies[:count]
-        cookies[:count] = cookies[:count].to_i + 1
-      else
-        cookies[:count] = 0
-      end
+      cookies[:count] = 0 unless cookies[:count]
 
       if cookies[:count] == 10
-        flash.now[:notice] = "!!!Учитесь вместе с GeekHub!!!"
-        cookies[:count] = 0
+        flash.now[:notice] = '!!!Учитесь вместе с GeekHub!!!'
+      else
+        cookies[:count].to_i += 1
       end
     end
 end

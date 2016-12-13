@@ -11,10 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login_in @user
-      flash[:success] = "User added successfuly !!!"
+      flash[:success] = 'User added successfuly !!!'
       redirect_to @user
     else
-      flash[:error] = "Something goes wrong"
+      flash[:error] = 'Something goes wrong'
       render 'new'
     end
   end
@@ -29,11 +29,14 @@ class UsersController < ApplicationController
   end
 
   def update
-
   end
 
   private
+
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name,
+                                   :email,
+                                   :password,
+                                   :password_confirmation)
     end
 end

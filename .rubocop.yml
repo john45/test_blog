@@ -1,0 +1,11 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/*'
+    - 'test/*'
+    - 'test/controllers/*'
+    - 'Rakefile'
+    - 'bin/spring'
+    - 'test/*/*/*'
+    - 'config/puma.rb'
